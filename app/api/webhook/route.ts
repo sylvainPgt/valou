@@ -9,7 +9,7 @@ const sanityWriteToken = process.env.SANITY_WRITE_TOKEN
 
 const stripe = stripeSecretKey
   ? new Stripe(stripeSecretKey, {
-      apiVersion: '2025-02-24.acacia',
+      apiVersion: '2026-02-25.clover',
     })
   : null
 

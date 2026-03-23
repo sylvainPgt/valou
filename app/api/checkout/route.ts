@@ -18,7 +18,7 @@ const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 
 const stripe = stripeSecretKey
   ? new Stripe(stripeSecretKey, {
-      apiVersion: '2025-02-24.acacia',
+      apiVersion: '2026-02-25.clover',
     })
   : null
 
