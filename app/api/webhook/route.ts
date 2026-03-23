@@ -69,15 +69,23 @@ export async function POST(request: Request) {
 
     if (productIds.length > 0) {
       const uniqueIds = [...new Set(productIds)]
-      const transaction = sanityWriteClient.transaction()
+      const candidateDocIds = uniqueIds.flatMap((id) => [id, `drafts.${id}`])
+      const existingDocIds = await sanityWriteClient.fetch<string[]>(
+        `*[_id in $ids]._id`,
+        {ids: candidateDocIds},
+      )
 
-      for (const productId of uniqueIds) {
-        transaction.patch(productId, {
-          set: {isAvailable: false},
-        })
+      if (existingDocIds.length > 0) {
+        const transaction = sanityWriteClient.transaction()
+
+        for (const docId of existingDocIds) {
+          transaction.patch(docId, {
+            set: {isAvailable: false},
+          })
+        }
+
+        await transaction.commit()
       }
-
-      await transaction.commit()
     }
   }
 
