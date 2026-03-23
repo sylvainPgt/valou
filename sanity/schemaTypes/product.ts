@@ -38,9 +38,10 @@ export const product = defineType({
           .precision(2),
     }),
     defineField({
-      name: 'stripePaymentLink',
-      title: 'Lien de paiement Stripe',
-      type: 'url',
+      name: 'isAvailable',
+      title: 'Disponible',
+      type: 'boolean',
+      initialValue: true,
       validation: (rule) => rule.required(),
     }),
     defineField({
