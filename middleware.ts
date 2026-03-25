@@ -20,9 +20,7 @@ export function middleware(req: NextRequest) {
   // Protect Sanity Studio route
   if (
     pathname === '/atelier-7k3p' ||
-    pathname.startsWith('/atelier-7k3p/') ||
-    pathname === '/studio' ||
-    pathname.startsWith('/studio/')
+    pathname.startsWith('/atelier-7k3p/')
   ) {
     const user = process.env.STUDIO_USER
     const pass = process.env.STUDIO_PASSWORD
@@ -58,6 +56,6 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/atelier-7k3p/:path*', '/studio/:path*'],
+  matcher: ['/atelier-7k3p/:path*'],
 }
 
