@@ -45,6 +45,31 @@ export const product = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'dimensions',
+      title: 'Dimensions (cm)',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'width',
+          title: 'Largeur',
+          type: 'number',
+          validation: (rule) => rule.min(0).precision(1),
+        }),
+        defineField({
+          name: 'height',
+          title: 'Hauteur',
+          type: 'number',
+          validation: (rule) => rule.min(0).precision(1),
+        }),
+        defineField({
+          name: 'depth',
+          title: 'Profondeur',
+          type: 'number',
+          validation: (rule) => rule.min(0).precision(1),
+        }),
+      ],
+    }),
+    defineField({
       name: 'photos',
       title: 'Galerie de photos',
       type: 'array',
