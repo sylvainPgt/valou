@@ -54,7 +54,7 @@ export default function ProductDetailClient({
   }, [lightboxOpen, safePhotos.length])
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 text-gray-900">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {product.isAvailable ? (
           <button
@@ -84,7 +84,7 @@ export default function ProductDetailClient({
               setActiveIndex(0)
               setLightboxOpen(true)
             }}
-            className="text-sm font-medium text-foreground/75 underline-offset-4 hover:underline"
+            className="text-sm font-medium text-gray-700 underline-offset-4 hover:underline"
           >
             Voir les photos en grand
           </button>

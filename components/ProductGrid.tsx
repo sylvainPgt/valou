@@ -42,7 +42,7 @@ export default function ProductGrid({products, variant = 'shop'}: ProductGridPro
       {products.map((p) => (
         <article
           key={p._id}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow hover:shadow-md"
+          className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow hover:shadow-md text-gray-900"
         >
           <Link href={`/boutique/${p.slug}`} className="block">
             <div className="relative aspect-[4/3] bg-zinc-100">
@@ -64,11 +64,11 @@ export default function ProductGrid({products, variant = 'shop'}: ProductGridPro
           <div className="flex flex-1 flex-col gap-4 p-5">
             <div className="flex flex-col gap-2">
               <Link href={`/boutique/${p.slug}`} className="block">
-                <h3 className="text-base font-semibold leading-6 text-foreground group-hover:underline underline-offset-4">
+                <h3 className="text-base font-semibold leading-6 text-gray-900 group-hover:underline underline-offset-4">
                   {p.name}
                 </h3>
               </Link>
-              <p className="text-lg font-semibold tabular-nums text-foreground">
+              <p className="text-lg font-semibold tabular-nums text-gray-900">
                 {formatPrice(p.price)}
               </p>
             </div>

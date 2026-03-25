@@ -76,7 +76,7 @@ export default function CartDrawer({open, onClose}: CartDrawerProps) {
         onClick={onClose}
       />
 
-      <aside className="relative h-full w-full max-w-md border-l border-black/10 bg-white shadow-xl">
+      <aside className="relative h-full w-full max-w-md border-l border-black/10 bg-white shadow-xl text-gray-900">
         <div className="flex h-full flex-col">
           <div className="flex items-center justify-between border-b border-black/5 px-5 py-4">
             <h2 className="text-lg font-semibold">Votre panier</h2>
@@ -91,7 +91,7 @@ export default function CartDrawer({open, onClose}: CartDrawerProps) {
 
           <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
             {items.length === 0 ? (
-              <p className="text-sm text-foreground/70">Votre panier est vide.</p>
+              <p className="text-sm text-gray-700">Votre panier est vide.</p>
             ) : (
               items.map((item) => (
                 <div
@@ -112,7 +112,7 @@ export default function CartDrawer({open, onClose}: CartDrawerProps) {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{item.title}</p>
-                      <p className="text-sm text-foreground/70">
+                      <p className="text-sm text-gray-700">
                         {item.quantity} x {formatPrice(item.price)}
                       </p>
                     </div>
@@ -133,8 +133,8 @@ export default function CartDrawer({open, onClose}: CartDrawerProps) {
 
           <div className="border-t border-black/5 px-5 py-4">
             <div className="mb-4 flex items-center justify-between text-sm">
-              <span className="text-foreground/70">Total</span>
-              <span className="text-lg font-semibold">{formatPrice(totalAmount)}</span>
+              <span className="text-gray-700">Total</span>
+              <span className="text-lg font-semibold text-gray-900">{formatPrice(totalAmount)}</span>
             </div>
             <div className="flex gap-2">
               <button

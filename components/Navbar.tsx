@@ -19,17 +19,17 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-black/5 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-black/5 bg-white/90 backdrop-blur text-gray-900">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <Link href="/" className="flex items-center gap-3">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-sm font-semibold text-white">
               V
             </span>
             <div className="leading-tight">
-              <p className="text-sm font-semibold tracking-tight text-foreground">
+              <p className="text-sm font-semibold tracking-tight text-gray-900">
                 Valou Atelier
               </p>
-              <p className="text-xs text-foreground/60">
+              <p className="text-xs text-gray-600">
                 Rénovation vintage & bois sauvé
               </p>
             </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
                   href={link.href}
                   className={[
                     'text-sm font-medium transition-colors',
-                    isActive ? 'text-foreground' : 'text-foreground/70 hover:text-foreground',
+                    isActive ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900',
                   ].join(' ')}
                 >
                   {link.label}
@@ -79,7 +79,7 @@ export default function Navbar() {
                   'flex-1 rounded-full border px-3 py-2 text-center text-xs font-medium transition',
                   isActive
                     ? 'border-black/10 bg-zinc-900 text-white'
-                    : 'border-black/10 bg-white text-foreground/70 hover:text-foreground',
+                    : 'border-black/10 bg-white text-gray-600 hover:text-gray-900',
                 ].join(' ')}
               >
                 {link.label}
