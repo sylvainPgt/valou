@@ -1,6 +1,7 @@
 import {NextResponse} from 'next/server'
 import Stripe from 'stripe'
 import {client} from '@/sanity/lib/client'
+import {rateLimit} from '@/app/api/_utils/rateLimit'
 
 type CheckoutBody = {
   productIds?: string[]
@@ -23,6 +24,13 @@ const stripe = stripeSecretKey
   : null
 
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const rl = rateLimit({key: `checkout:${ip}`, limit: 20, windowMs: 60_000})
+  if (!rl.ok) {
+    return NextResponse.json({error: 'Too many requests.'}, {status: 429})
+  }
+
   if (!stripe) {
     return NextResponse.json(
       {error: 'Missing STRIPE_SECRET_KEY environment variable.'},

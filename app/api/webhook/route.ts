@@ -2,6 +2,7 @@ import {NextResponse} from 'next/server'
 import Stripe from 'stripe'
 import {createClient} from 'next-sanity'
 import {apiVersion, dataset, projectId} from '@/sanity/env'
+import {rateLimit} from '@/app/api/_utils/rateLimit'
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET
@@ -24,6 +25,14 @@ const sanityWriteClient = sanityWriteToken
   : null
 
 export async function POST(request: Request) {
+  // Best-effort rate limit (signature verification is the real protection)
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const rl = rateLimit({key: `webhook:${ip}`, limit: 60, windowMs: 60_000})
+  if (!rl.ok) {
+    return NextResponse.json({error: 'Too many requests.'}, {status: 429})
+  }
+
   if (!stripe || !stripeWebhookSecret) {
     return NextResponse.json(
       {error: 'Missing Stripe webhook configuration.'},
