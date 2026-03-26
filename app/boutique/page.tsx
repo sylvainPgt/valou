@@ -1,6 +1,8 @@
 import {sanityFetch} from '@/sanity/lib/live'
 import ProductGrid, {type ProductCard} from '@/components/ProductGrid'
 
+export const dynamic = 'force-dynamic'
+
 const PRODUCTS_QUERY = /* groq */ `
   *[_type == "product"] | order(_createdAt desc) {
     _id,

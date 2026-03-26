@@ -3,6 +3,8 @@ import Link from 'next/link'
 import {sanityFetch} from '@/sanity/lib/live'
 import ProductGrid, {type ProductCard} from '@/components/ProductGrid'
 
+export const dynamic = 'force-dynamic'
+
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1800&q=80'
 
