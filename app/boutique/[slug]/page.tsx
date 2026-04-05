@@ -56,12 +56,12 @@ export default async function ProductPage({
   const heroImage = photos[0]?.url
 
   return (
-    <main className="bg-background text-gray-900">
+    <main className="bg-background text-foreground">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <div className="mb-6">
           <Link
             href="/boutique"
-            className="text-sm font-medium text-gray-700 underline-offset-4 hover:underline"
+            className="text-sm font-medium text-foreground/75 underline-offset-4 hover:text-primary hover:underline"
           >
             ← Retour à la boutique
           </Link>
@@ -69,7 +69,7 @@ export default async function ProductPage({
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
           <section className="space-y-4">
-            <div className="overflow-hidden rounded-3xl border border-black/5 bg-zinc-100 shadow-sm">
+            <div className="overflow-hidden rounded-3xl border border-secondary/10 bg-secondary/10 shadow-soft">
               <div className="relative aspect-[4/3]">
                 {heroImage ? (
                   <Image
@@ -81,7 +81,7 @@ export default async function ProductPage({
                     className="object-cover"
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-sm text-zinc-500">
+                  <div className="absolute inset-0 flex items-center justify-center text-sm text-foreground/50">
                     Aucune image
                   </div>
                 )}
@@ -93,7 +93,7 @@ export default async function ProductPage({
                 {photos.slice(0, 4).map((p) => (
                   <div
                     key={p.url}
-                    className="relative aspect-square overflow-hidden rounded-2xl border border-black/5 bg-zinc-100"
+                    className="relative aspect-square overflow-hidden rounded-2xl border border-secondary/10 bg-secondary/10"
                   >
                     <Image
                       src={p.url}
@@ -121,18 +121,18 @@ export default async function ProductPage({
                   {formatPrice(data.price)}
                 </p>
                 {data.isAvailable ? (
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold text-foreground">
                     Disponible
                   </span>
                 ) : (
-                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700">
+                  <span className="rounded-full bg-secondary/15 px-3 py-1 text-xs font-semibold text-foreground/80">
                     Indisponible
                   </span>
                 )}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm">
+            <div className="rounded-3xl border border-secondary/10 bg-card p-7 shadow-soft">
               <ProductDetailClient
                 product={{
                   _id: data._id,
@@ -145,32 +145,32 @@ export default async function ProductPage({
               />
             </div>
 
-            <div className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm text-gray-900">
+            <div className="rounded-3xl border border-secondary/10 bg-card p-7 shadow-soft text-foreground">
               <h2 className="text-base font-semibold">Description</h2>
-              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-gray-700 sm:text-base">
+              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-foreground/75 sm:text-base">
                 {data.description}
               </p>
             </div>
 
-            <div className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm text-gray-900">
+            <div className="rounded-3xl border border-secondary/10 bg-card p-7 shadow-soft text-foreground">
               <h2 className="text-base font-semibold">Dimensions</h2>
               <dl className="mt-4 grid grid-cols-3 gap-4 text-sm">
-                <div className="rounded-2xl border border-black/5 bg-zinc-50 px-4 py-3">
-                  <dt className="text-gray-600">Largeur</dt>
+                <div className="rounded-2xl border border-secondary/10 bg-background/80 px-4 py-3">
+                  <dt className="text-foreground/65">Largeur</dt>
                   <dd className="mt-1 font-semibold tabular-nums">
                     {data.dimensions?.width ?? '—'}{' '}
                     {typeof data.dimensions?.width === 'number' ? 'cm' : ''}
                   </dd>
                 </div>
-                <div className="rounded-2xl border border-black/5 bg-zinc-50 px-4 py-3">
-                  <dt className="text-gray-600">Hauteur</dt>
+                <div className="rounded-2xl border border-secondary/10 bg-background/80 px-4 py-3">
+                  <dt className="text-foreground/65">Hauteur</dt>
                   <dd className="mt-1 font-semibold tabular-nums">
                     {data.dimensions?.height ?? '—'}{' '}
                     {typeof data.dimensions?.height === 'number' ? 'cm' : ''}
                   </dd>
                 </div>
-                <div className="rounded-2xl border border-black/5 bg-zinc-50 px-4 py-3">
-                  <dt className="text-gray-600">Profondeur</dt>
+                <div className="rounded-2xl border border-secondary/10 bg-background/80 px-4 py-3">
+                  <dt className="text-foreground/65">Profondeur</dt>
                   <dd className="mt-1 font-semibold tabular-nums">
                     {data.dimensions?.depth ?? '—'}{' '}
                     {typeof data.dimensions?.depth === 'number' ? 'cm' : ''}
@@ -178,7 +178,7 @@ export default async function ProductPage({
                 </div>
               </dl>
 
-              <p className="mt-4 text-xs text-gray-600">
+              <p className="mt-4 text-xs text-foreground/60">
                 Astuce : tu peux renseigner ces valeurs dans Sanity (cm).
               </p>
             </div>

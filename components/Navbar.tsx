@@ -19,17 +19,17 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-black/5 bg-white/90 backdrop-blur text-gray-900">
+      <header className="sticky top-0 z-30 border-b border-secondary/15 bg-background/95 backdrop-blur text-foreground">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <Link href="/" className="flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-sm font-semibold text-white">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-white">
               V
             </span>
             <div className="leading-tight">
-              <p className="text-sm font-semibold tracking-tight text-gray-900">
+              <p className="font-heading text-sm font-semibold tracking-tight text-foreground">
                 Valou Atelier
               </p>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs text-foreground/65">
                 Rénovation vintage & bois sauvé
               </p>
             </div>
@@ -44,7 +44,9 @@ export default function Navbar() {
                   href={link.href}
                   className={[
                     'text-sm font-medium transition-colors',
-                    isActive ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900',
+                    isActive
+                      ? 'text-primary'
+                      : 'text-foreground hover:text-primary',
                   ].join(' ')}
                 >
                   {link.label}
@@ -56,12 +58,12 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setCartOpen(true)}
-            className="relative inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-zinc-50"
+            className="relative inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-background px-4 py-2 text-sm font-medium shadow-soft transition hover:bg-card"
           >
             <span aria-hidden>🛒</span>
             <span className="hidden sm:inline">Panier</span>
             {itemsCount > 0 && (
-              <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-foreground px-2 py-0.5 text-xs font-semibold text-background">
+              <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-white">
                 {itemsCount}
               </span>
             )}
@@ -78,8 +80,8 @@ export default function Navbar() {
                 className={[
                   'flex-1 rounded-full border px-3 py-2 text-center text-xs font-medium transition',
                   isActive
-                    ? 'border-black/10 bg-zinc-900 text-white'
-                    : 'border-black/10 bg-white text-gray-600 hover:text-gray-900',
+                    ? 'border-primary/30 bg-primary text-white'
+                    : 'border-secondary/20 bg-background text-foreground/80 hover:text-primary',
                 ].join(' ')}
               >
                 {link.label}
@@ -93,4 +95,3 @@ export default function Navbar() {
     </>
   )
 }
-

@@ -23,6 +23,9 @@ function formatPrice(price: number) {
   }).format(price)
 }
 
+const btnPrimary =
+  'inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white transition hover:brightness-[0.92] focus:outline-none focus:ring-2 focus:ring-primary/30'
+
 export default function ProductDetailClient({
   product,
   photos,
@@ -54,7 +57,7 @@ export default function ProductDetailClient({
   }, [lightboxOpen, safePhotos.length])
 
   return (
-    <div className="space-y-5 text-gray-900">
+    <div className="space-y-5 text-foreground">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {product.isAvailable ? (
           <button
@@ -67,12 +70,12 @@ export default function ProductDetailClient({
                 image: product.imageUrl ?? safePhotos[0]?.url ?? null,
               })
             }
-            className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition hover:bg-foreground/90 focus:outline-none focus:ring-2 focus:ring-foreground/20"
+            className={btnPrimary}
           >
             Ajouter au panier · {formatPrice(product.price)}
           </button>
         ) : (
-          <span className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-300 px-6 text-sm font-medium text-zinc-500">
+          <span className="inline-flex h-11 items-center justify-center rounded-full border border-secondary/25 px-6 text-sm font-medium text-foreground/55">
             Indisponible
           </span>
         )}
@@ -84,7 +87,7 @@ export default function ProductDetailClient({
               setActiveIndex(0)
               setLightboxOpen(true)
             }}
-            className="text-sm font-medium text-gray-700 underline-offset-4 hover:underline"
+            className="text-sm font-medium text-foreground/75 underline-offset-4 hover:text-primary hover:underline"
           >
             Voir les photos en grand
           </button>
@@ -102,8 +105,10 @@ export default function ProductDetailClient({
                 setLightboxOpen(true)
               }}
               className={[
-                'relative h-16 w-16 overflow-hidden rounded-xl border bg-zinc-100',
-                idx === activeIndex ? 'border-black/20' : 'border-black/5',
+                'relative h-16 w-16 overflow-hidden rounded-xl border bg-secondary/10',
+                idx === activeIndex
+                  ? 'border-secondary/40 ring-2 ring-primary/30'
+                  : 'border-secondary/15',
               ].join(' ')}
               aria-label={`Ouvrir la photo ${idx + 1}`}
             >
@@ -114,7 +119,7 @@ export default function ProductDetailClient({
       ) : null}
 
       {lightboxOpen && activePhoto ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/75 p-4">
           <button
             type="button"
             aria-label="Fermer"
@@ -146,7 +151,7 @@ export default function ProductDetailClient({
                       (i) => (i - 1 + safePhotos.length) % safePhotos.length,
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-white"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/95 px-4 py-2 text-sm font-semibold text-foreground shadow-soft backdrop-blur-sm hover:bg-background"
                 >
                   ←
                 </button>
@@ -154,7 +159,7 @@ export default function ProductDetailClient({
                   type="button"
                   aria-label="Photo suivante"
                   onClick={() => setActiveIndex((i) => (i + 1) % safePhotos.length)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/95 px-4 py-2 text-sm font-semibold text-foreground shadow-soft backdrop-blur-sm hover:bg-background"
                 >
                   →
                 </button>
@@ -170,7 +175,7 @@ export default function ProductDetailClient({
               <button
                 type="button"
                 onClick={() => setLightboxOpen(false)}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-zinc-900 transition hover:bg-white/90"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-background px-5 text-sm font-medium text-foreground transition hover:brightness-[0.97]"
               >
                 Fermer
               </button>
@@ -181,4 +186,3 @@ export default function ProductDetailClient({
     </div>
   )
 }
-

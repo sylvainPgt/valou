@@ -38,7 +38,7 @@ export default async function BoutiquePage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
         {products.length === 0 ? (
-          <div className="rounded-2xl border border-black/5 bg-white px-6 py-10 text-center shadow-sm">
+          <div className="rounded-2xl border border-secondary/10 bg-card px-6 py-10 text-center shadow-soft">
             <p className="text-base font-medium">Aucun produit pour le moment.</p>
             <p className="mt-2 text-sm text-foreground/70">
               Ajoutez des documents <code>product</code> dans Sanity.

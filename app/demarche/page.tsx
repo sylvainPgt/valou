@@ -23,20 +23,20 @@ export default function DemarchePage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/boutique"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition hover:bg-foreground/90"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white transition hover:brightness-[0.92]"
             >
               Découvrir la boutique
             </Link>
             <Link
               href="/galerie"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-black/10 bg-white px-6 text-sm font-medium transition hover:bg-zinc-50"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-secondary/25 bg-background px-6 text-sm font-medium text-foreground transition hover:bg-card"
             >
               Voir les réalisations
             </Link>
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-zinc-100 shadow-sm">
+        <div className="relative overflow-hidden rounded-3xl border border-secondary/10 bg-secondary/10 shadow-soft">
           <div className="relative aspect-[4/3]">
             <Image
               src={heroImage}
@@ -52,7 +52,7 @@ export default function DemarchePage() {
 
       <section className="mx-auto max-w-6xl space-y-10 px-4 pb-16 sm:px-6">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
+          <div className="rounded-3xl border border-secondary/10 bg-card p-8 shadow-soft">
             <h2 className="text-xl font-semibold tracking-tight">Mon Histoire</h2>
             <p className="mt-4 text-sm leading-7 text-foreground/70 sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
@@ -61,7 +61,7 @@ export default function DemarchePage() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
+          <div className="rounded-3xl border border-secondary/10 bg-card p-8 shadow-soft">
             <h2 className="text-xl font-semibold tracking-tight">Mes Engagements</h2>
             <ul className="mt-4 space-y-3 text-sm text-foreground/70 sm:text-base">
               <li className="flex gap-3">

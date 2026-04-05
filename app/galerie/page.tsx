@@ -43,7 +43,7 @@ export default function GaleriePage() {
           <div className="pt-2">
             <Link
               href="/demarche"
-              className="text-sm font-medium text-foreground/80 underline-offset-4 hover:underline"
+              className="text-sm font-medium text-foreground/80 underline-offset-4 hover:text-primary hover:underline"
             >
               Découvrir ma démarche
             </Link>
@@ -56,9 +56,9 @@ export default function GaleriePage() {
           {images.map((img) => (
             <figure
               key={img.src}
-              className="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+              className="group overflow-hidden rounded-3xl border border-secondary/10 bg-card shadow-soft"
             >
-              <div className="relative aspect-[4/3] bg-zinc-100">
+              <div className="relative aspect-[4/3] bg-secondary/10">
                 <Image
                   src={img.src}
                   alt={img.alt}

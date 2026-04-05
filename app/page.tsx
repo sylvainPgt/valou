@@ -57,7 +57,7 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/boutique"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-zinc-900 transition hover:bg-white/90"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white transition hover:brightness-[0.92]"
             >
               Explorer la boutique
             </Link>
@@ -84,7 +84,7 @@ export default async function HomePage() {
           </div>
           <Link
             href="/boutique"
-            className="text-sm font-medium text-foreground/80 underline-offset-4 hover:underline"
+            className="text-sm font-medium text-foreground/80 underline-offset-4 hover:text-primary hover:underline"
           >
             Voir toute la boutique
           </Link>
@@ -98,7 +98,7 @@ export default async function HomePage() {
       {/* Philosophie */}
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-black/5 bg-white p-10 shadow-sm">
+          <div className="rounded-3xl border border-secondary/10 bg-card p-10 shadow-soft">
             <p className="text-xs uppercase tracking-[0.2em] text-foreground/60">
               Ma philosophie
             </p>
@@ -113,14 +113,14 @@ export default async function HomePage() {
             <div className="mt-7">
               <Link
                 href="/demarche"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition hover:bg-foreground/90"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white transition hover:brightness-[0.92]"
               >
                 Lire la démarche
               </Link>
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-zinc-100 shadow-sm">
+          <div className="relative overflow-hidden rounded-3xl border border-secondary/10 bg-secondary/10 shadow-soft">
             <div className="relative aspect-[4/3]">
               <Image
                 src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80"
