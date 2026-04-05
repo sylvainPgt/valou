@@ -40,17 +40,17 @@ export default async function HomePage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/72 via-black/52 to-black/44" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-          <p className="text-xs uppercase tracking-[0.25em] text-white/80">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/95 text-hero-readable">
             Artisanat • rénovation vintage • pièces uniques
           </p>
-          <h1 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl text-hero-readable">
             La seconde vie des meubles oubliés
           </h1>
-          <p className="mt-5 max-w-xl text-sm leading-7 text-white/80 sm:text-base">
+          <p className="mt-5 max-w-xl text-sm leading-7 text-white/95 sm:text-base text-hero-readable">
             Une boutique d&apos;artisanat dédiée au bois sauvé, aux finitions soignées et
             aux objets qui traversent le temps.
           </p>
@@ -63,7 +63,7 @@ export default async function HomePage() {
             </Link>
             <Link
               href="/demarche"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 text-sm font-medium text-white transition hover:bg-white/15"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-white/40 bg-white/12 px-6 text-sm font-medium text-white text-hero-readable backdrop-blur-[2px] transition hover:bg-white/20"
             >
               Découvrir ma démarche
             </Link>

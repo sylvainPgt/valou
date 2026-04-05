@@ -121,11 +121,11 @@ export default async function ProductPage({
                   {formatPrice(data.price)}
                 </p>
                 {data.isAvailable ? (
-                  <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold text-foreground">
+                  <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-sm ring-1 ring-foreground/10">
                     Disponible
                   </span>
                 ) : (
-                  <span className="rounded-full bg-secondary/15 px-3 py-1 text-xs font-semibold text-foreground/80">
+                  <span className="rounded-full border border-secondary/35 bg-card px-3 py-1 text-xs font-semibold text-foreground">
                     Indisponible
                   </span>
                 )}
